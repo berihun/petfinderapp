@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  java_db:
+    container_name: java_db
+    image: postgres:15
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: postgres
+      POSTGRES_DB: petfinder
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata: {}
+#version: '3'
+#services:
+#  db:
+#    image: mysql:5.7
+#    environment:
+#      MYSQL_ROOT_PASSWORD: P@ssword123
+#      MYSQL_DATABASE: root
+#    volumes:
+#      - db_data:/var/lib/mysql
+#  web:
+#    build: .
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/pets
+#      SPRING_DATASOURCE_USERNAME: root
+#      SPRING_DATASOURCE_PASSWORD: P@ssword123
+#volumes:
+#  db_data:
